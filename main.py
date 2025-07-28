@@ -2,7 +2,7 @@ import requests
 
 API_KEY = ("66ca246726b250aef5d590c5df783e7e")
 
-def hava_durumu_getir(sehir):
+def get_weather(sehir):
     url = f"http://api.openweathermap.org/data/2.5/weather?q={sehir}&appid={API_KEY}&units=metric&lang=tr"
     response = requests.get(url)
     data = response.json()
@@ -16,8 +16,8 @@ def hava_durumu_getir(sehir):
         print(f"Nem: {data['main']['humidity']}%")
 
 def main():
-    sehir = input("Hava durumunu öğrenmek istediğiniz şehir: ")
-    hava_durumu_getir(sehir)
+    city = input("Hava durumunu öğrenmek istediğiniz şehir: ")
+    get_weather(city)
 
 if __name__ == "__main__":
     main()
